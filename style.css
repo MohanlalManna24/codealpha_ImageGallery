@@ -1,0 +1,113 @@
+:root {
+    --bg: #0f172a;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --accent: #38bdf8;
+    --text: #f1f5f9;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+header h1 { font-size: 3rem; margin-bottom: 10px; }
+header h1 span { color: var(--accent); }
+
+/* Filters */
+.filters { margin-top: 20px; }
+.btn {
+    background: var(--card-bg);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: white;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn:hover, .btn.active {
+    background: var(--accent);
+    color: var(--bg);
+    font-weight: bold;
+}
+
+/* Gallery Grid */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.item {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    height: 300px;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.item:hover img {
+    transform: scale(1.1) rotate(2deg);
+}
+
+/* Lightbox */
+.lightbox {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.95);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.lightbox img {
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 10px;
+    box-shadow: 0 0 50px var(--accent);
+}
+
+.close {
+    position: absolute;
+    top: 30px; right: 40px;
+    font-size: 40px; color: white;
+    cursor: pointer;
+}
+
+.nav-btns {
+    position: absolute;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-btns button {
+    background: rgba(255,255,255,0.1);
+    border: none; color: white;
+    padding: 20px; font-size: 25px;
+    cursor: pointer; border-radius: 50%;
+}
